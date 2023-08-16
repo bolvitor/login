@@ -16,5 +16,7 @@
                 </form>
                 <p class="mt-3">¿No tiene una cuenta? <a href="/login_prueba/registro" class="text-primary fw-bold">Regístrese aquí</a></p>
             </div>
+            <script src="<?= asset('./build/js/login/index.js')?>"></script>
         </div>
     </div>
+
