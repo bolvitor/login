@@ -14,10 +14,10 @@ class LoginController {
     public static function loginAPI() {
         $catalogo = filter_var($_POST['usu_catalogo'], FILTER_SANITIZE_NUMBER_INT);
         $password = filter_var($_POST['usu_password'], FILTER_DEFAULT);
-        $usuarioRegistrado = Usuario::fetchFirst("SELECT * FROM usuario WHERE usu_catalogo = ?", [$catalogo]);
+        $usuarioRegistrado = Usuario::fetchFirst("SELECT * FROM usuario WHERE usu_catalogo = $catalogo");
 
         try {
-            if ($usuarioRegistrado !== false) {
+            if (is_array($usuarioRegistrado)) {
                 $verificacion = password_verify($password, $usuarioRegistrado['usu_password']);
                 $nombre = $usuarioRegistrado["usu_nombre"];
                 
