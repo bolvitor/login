@@ -1,7 +1,7 @@
 <?php
 
 namespace Controllers;
-
+use Exception;
 use MVC\Router;
 use Model\Usuario;
 
@@ -24,13 +24,12 @@ class LoginController {
                 if ($verificacion) {
                     session_start();
                     $_SESSION['auth_user'] = $catalogo;
-
-                    header("Location: /views/menu/index.php");
-                    exit();
+                    
 
                     echo json_encode([
                         'codigo' => 1,
-                        'mensaje' => "Sesión iniciada correctamente. Bienvenido $nombre"
+                        'mensaje' => "Sesión iniciada correctamente. Bienvenido $nombre",
+
                     ]);
                 } else {
                     echo json_encode([
@@ -44,7 +43,7 @@ class LoginController {
                     'mensaje' => 'Usuario no encontrado'
                 ]);
             }
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             echo json_encode([
                 'detalle' => $e->getMessage(),
                 'codigo' => 0,
