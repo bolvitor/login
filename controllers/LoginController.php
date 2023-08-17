@@ -25,6 +25,9 @@ class LoginController {
                     session_start();
                     $_SESSION['auth_user'] = $catalogo;
 
+                    header("Location: /views/menu/index.php");
+                    exit();
+
                     echo json_encode([
                         'codigo' => 1,
                         'mensaje' => "Sesión iniciada correctamente. Bienvenido $nombre"
