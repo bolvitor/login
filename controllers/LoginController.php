@@ -7,8 +7,13 @@ use Model\Usuario;
 
 class LoginController {
 
-    public static function index(Router $router) {
-        $router->render('login/index', []);
+    public static function index(Router $router)
+    {
+        if ($_SESSION['auth_user'] == "") {
+            $router->render('login/index', []);
+        } else {
+            $router->render('menu/index', []);
+        }
     }
 
     public static function loginAPI() {
@@ -25,15 +30,10 @@ class LoginController {
                     session_start();
                     $_SESSION['auth_user'] = $catalogo;
 
-                    // echo "<pre>";
-                    // var_dump($_SESSION);
-                    // echo "</pre>";
-                    
-
                     echo json_encode([
                         'codigo' => 1,
                         'mensaje' => "Sesión iniciada correctamente. Bienvenido $nombre",
-
+                        'redireccion' => '/login/menu'
                     ]);
                 } else {
                     echo json_encode([
