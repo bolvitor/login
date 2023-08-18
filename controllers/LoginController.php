@@ -1,11 +1,13 @@
 <?php
 
 namespace Controllers;
+
 use Exception;
 use MVC\Router;
 use Model\Usuario;
 
-class LoginController {
+class LoginController
+{
 
     public static function index(Router $router)
     {
@@ -16,7 +18,8 @@ class LoginController {
         }
     }
 
-    public static function loginAPI() {
+    public static function loginAPI()
+    {
         $catalogo = filter_var($_POST['usu_catalogo'], FILTER_SANITIZE_NUMBER_INT);
         $password = filter_var($_POST['usu_password'], FILTER_DEFAULT);
         $usuarioRegistrado = Usuario::fetchFirst("SELECT * FROM usuario WHERE usu_catalogo = $catalogo");
@@ -25,7 +28,7 @@ class LoginController {
             if (is_array($usuarioRegistrado)) {
                 $verificacion = password_verify($password, $usuarioRegistrado['usu_password']);
                 $nombre = $usuarioRegistrado["usu_nombre"];
-                
+
                 if ($verificacion) {
                     session_start();
                     $_SESSION['auth_user'] = $catalogo;

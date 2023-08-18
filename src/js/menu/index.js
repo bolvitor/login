@@ -5,8 +5,8 @@ const closeSessionRequest = async e => {
 
 
     try {
-        const url = "/login/API/closeSession"; 
-     
+        const url = "/login/API/closeSession";
+
         const headers = new Headers();
         headers.append("X-Requested-With", "fetch");
 
@@ -14,13 +14,13 @@ const closeSessionRequest = async e => {
             method: 'GET',
             headers
         };
-        
-        const respuesta = await fetch(url,config);
-        
-        
+
+        const respuesta = await fetch(url, config);
+
+
         window.location.href = '/login/';
 
-      
+
     } catch (error) {
         console.log(error);
     }
