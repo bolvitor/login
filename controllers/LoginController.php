@@ -24,6 +24,10 @@ class LoginController {
                 if ($verificacion) {
                     session_start();
                     $_SESSION['auth_user'] = $catalogo;
+
+                    // echo "<pre>";
+                    // var_dump($_SESSION);
+                    // echo "</pre>";
                     
 
                     echo json_encode([
