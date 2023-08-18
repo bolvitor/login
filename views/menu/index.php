@@ -48,7 +48,7 @@
                 </ul> 
                 <div class="col-lg-1 d-grid mb-lg-0 mb-2">
                     <!-- Ruta relativa desde el archivo donde se incluye menu.php -->
-                    <a href="/login/" class="btn btn-danger"><i class="bi bi-arrow-bar-left"></i>CERRAR SESIÓN</a>
+                    <a id="CerrarSesion" class="btn btn-danger"><i class="bi bi-arrow-bar-left"></i>CERRAR SESIÓN</a>
                 </div>
 
             
@@ -60,6 +60,6 @@
         <div class="progress-bar progress-bar-animated bg-danger" id="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
     </div>
     <div class="container-fluid pt-5 mb-4" style="min-height: 85vh">
-        
+    <script src="<?= asset('./build/js/menu/index.js') ?>"></script> 
 </body>
 </html>
