@@ -46,10 +46,13 @@
                     </div> 
 
                 </ul> 
-                <div class="col-lg-1 d-grid mb-lg-0 mb-2">
-                    <!-- Ruta relativa desde el archivo donde se incluye menu.php -->
-                    <a id="CerrarSesion" class="btn btn-danger"><i class="bi bi-arrow-bar-left"></i>CERRAR SESIÓN</a>
-                </div>
+                <form>
+                    <div class="col-lg-1 d-grid mb-lg-0 mb-2">
+                        <!-- Ruta relativa desde el archivo donde se incluye menu.php -->
+                        <button class="btn btn-danger" type="submit" id="closeSession"
+                            name="closeSession"><i class="bi bi-arrow-bar-left"></i>CERRAR SESIÓN</button>
+                    </div>
+                </form>
 
             
             </div>
